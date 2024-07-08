@@ -7,6 +7,7 @@ import {
 } from '@tanstack/react-table';
 
 const ExchangeRateTable = ({ baseCurrency, exchangeRates }) => {
+  //Transforms the exchangeRates object into an array of objects suitable for rendering in the table.
     const data = useMemo(
         () => Object.entries(exchangeRates).map(([Target, ExchangeRate]) => ({
             baseCurrency,
@@ -15,7 +16,7 @@ const ExchangeRateTable = ({ baseCurrency, exchangeRates }) => {
         })),
         [exchangeRates, baseCurrency]
     );
-
+//Defines an array of column configurations for the table
     const columns = useMemo(
         () => [
             {
@@ -39,7 +40,8 @@ const ExchangeRateTable = ({ baseCurrency, exchangeRates }) => {
         ],
         [baseCurrency]
     );
-
+    
+//Initializes a React Table instance 
     const table = useReactTable({
         data,
         columns,
