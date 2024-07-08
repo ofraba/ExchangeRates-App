@@ -26,7 +26,7 @@ async def get_exchange_rates(base_currency: str):
     if base_currency not in currencies:
         raise HTTPException(status_code=400, detail="Invalid base currency")
     
-    #constructs the URL for the exchange rate API request.
+    #Constructs the URL for the exchange rate API request.
     url = f"https://api.exchangerate-api.com/v4/latest/{base_currency}"
     #Creates an asynchronous HTTP client with SSL verification disabled.
     async with httpx.AsyncClient(verify=False) as client: 
